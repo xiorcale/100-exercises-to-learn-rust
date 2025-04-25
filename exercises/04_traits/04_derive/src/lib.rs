@@ -8,7 +8,7 @@
 // print both sides of the comparison to the terminal.
 // If the compared type doesn't implement `Debug`, it doesn't know how to represent them!
 
-#[derive(PartialEq)]
+#[derive(Debug, PartialEq)]
 struct Ticket {
     title: String,
     description: String,
@@ -34,6 +34,7 @@ mod tests {
             description: description.to_string(),
             status: status.to_string(),
         };
+
         assert_eq!(ticket1, ticket2);
     }
 
