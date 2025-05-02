@@ -26,3 +26,9 @@ pub struct Ticket {
     pub description: TicketDescription,
     pub status: Status,
 }
+
+#[derive(Debug, thiserror::Error)]
+pub enum TicketError {
+    #[error("Failed to parse ticket")]
+    InvalidParsing(#[from] Box<dyn std::error::Error>),
+}
